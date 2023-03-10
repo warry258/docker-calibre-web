@@ -68,6 +68,7 @@ RUN \
     libsasl2-dev \
     python3-dev && \
   apt-get -y autoremove && \
+  pip uninstall scholarly -y
   rm -rf \
     /tmp/* \
     /var/lib/apt/lists/* \
@@ -80,4 +81,4 @@ COPY root/ /
 # ports and volumes
 EXPOSE 8083
 VOLUME /config
-pip uninstall scholarly -y
+
