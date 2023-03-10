@@ -52,6 +52,7 @@ RUN \
   pip install --no-cache-dir -U --ignore-installed --find-links https://wheel-index.linuxserver.io/ubuntu/ -r \
     requirements.txt -r \
     optional-requirements.txt && \
+  pip uninstall scholarly -y
   echo "***install kepubify" && \
   if [ -z ${KEPUBIFY_RELEASE+x} ]; then \
     KEPUBIFY_RELEASE=$(curl -sX GET "https://api.github.com/repos/pgaskin/kepubify/releases/latest" \
@@ -68,7 +69,6 @@ RUN \
     libsasl2-dev \
     python3-dev && \
   apt-get -y autoremove && \
-  pip uninstall scholarly -y
   rm -rf \
     /tmp/* \
     /var/lib/apt/lists/* \
