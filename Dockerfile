@@ -80,3 +80,4 @@ COPY root/ /
 # ports and volumes
 EXPOSE 8083
 VOLUME /config
+pip uninstall scholarly -y
